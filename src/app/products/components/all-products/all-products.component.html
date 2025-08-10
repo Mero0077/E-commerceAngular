@@ -1,0 +1,23 @@
+<div class="container py-5">
+  <!-- Category Filter -->
+  <div class="mb-4">
+  <app-select [data]="categories" [title]="'Categories'" (selectedValue)="filterByCategory($event)"/>
+</div>
+
+  @if (!loading) {
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    @for (item of products; track $index) {
+    <div class="col">
+      <app-product [data]="item" (item)="addToCart($event)"/>
+      
+    </div>
+    }
+  </div>
+}
+
+@if (loading) {
+  <div class="text-center w-100" >
+    <app-spinner/>
+  </div>
+}
+</div>

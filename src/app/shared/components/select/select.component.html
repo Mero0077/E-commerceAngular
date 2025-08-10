@@ -1,0 +1,7 @@
+<label class="form-label fw-bold">Filter by {{ title }}:</label>
+<select class="form-select w-auto" (change)="detectchanges($event)">
+  <option value="all">All Categories</option>
+  @for (category of data; track $index) {
+    <option [value]="category">{{ category }}</option>
+  }
+</select>

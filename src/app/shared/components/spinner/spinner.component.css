@@ -1,0 +1,117 @@
+.lds-arrows {
+  display: inline-block;
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 2rem auto;
+}
+
+.lds-arrows div {
+  position: absolute;
+  width: 0; 
+  height: 0;
+  border-style: solid;
+  animation: lds-arrows-pulse 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Cardinal Directions */
+.lds-arrows div:nth-child(1) { /* Up */
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 16px 24px 16px;
+  border-color: transparent transparent #6e45e2 transparent;
+  animation-delay: -0.3s;
+}
+
+.lds-arrows div:nth-child(2) { /* Right */
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  border-width: 16px 0 16px 24px;
+  border-color: transparent transparent transparent #88d3ce;
+  animation-delay: -0.15s;
+}
+
+.lds-arrows div:nth-child(3) { /* Down */
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 24px 16px 0 16px;
+  border-color: #ff6b6b transparent transparent transparent;
+  animation-delay: 0s;
+}
+
+.lds-arrows div:nth-child(4) { /* Left */
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border-width: 16px 24px 16px 0;
+  border-color: transparent #ffa3a3 transparent transparent;
+  animation-delay: 0.15s;
+}
+
+/* Diagonal Directions */
+.lds-arrows div:nth-child(5) { /* Top Right */
+  top: 15%;
+  right: 15%;
+  border-width: 0 12px 18px 12px;
+  border-color: transparent transparent #9c27b0 transparent;
+  transform: rotate(45deg);
+  animation-delay: -0.25s;
+}
+
+.lds-arrows div:nth-child(6) { /* Bottom Right */
+  bottom: 15%;
+  right: 15%;
+  border-width: 12px 0 12px 18px;
+  border-color: transparent transparent transparent #4caf50;
+  transform: rotate(45deg);
+  animation-delay: -0.1s;
+}
+
+.lds-arrows div:nth-child(7) { /* Bottom Left */
+  bottom: 15%;
+  left: 15%;
+  border-width: 18px 12px 0 12px;
+  border-color: #ff9800 transparent transparent transparent;
+  transform: rotate(45deg);
+  animation-delay: 0.1s;
+}
+
+.lds-arrows div:nth-child(8) { /* Top Left */
+  top: 15%;
+  left: 15%;
+  border-width: 12px 18px 12px 0;
+  border-color: transparent #2196f3 transparent transparent;
+  transform: rotate(45deg);
+  animation-delay: 0.25s;
+}
+
+@keyframes lds-arrows-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.5) translateZ(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) translateZ(0);
+    filter: drop-shadow(0 0 4px rgba(110, 69, 226, 0.5));
+  }
+}
+
+/* Optional glow effect */
+.lds-arrows::after {
+  content: '';
+  position: absolute;
+  inset: -15px;
+  background: radial-gradient(circle, rgba(110, 69, 226, 0.1) 0%, transparent 60%);
+  border-radius: 50%;
+  animation: lds-arrows-glow 3s ease infinite;
+  z-index: -1;
+}
+
+@keyframes lds-arrows-glow {
+  0%, 100% { opacity: 0.4; transform: scale(0.9); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
